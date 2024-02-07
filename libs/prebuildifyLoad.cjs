@@ -9,12 +9,9 @@ module.exports = main;
  * @returns {any}
  */
 function main(name, pathLocation) {
-  if (!pathLocation)
-  {
-  pathLocation = path.resolve(__dirname, "..");
-  pathLocation = pathLocation.replace('app.asar', 'app.asar.unpacked');
-  }
+  if (!pathLocation) pathLocation = path.resolve(__dirname, "..");
   else pathLocation = path.resolve(process.cwd(), pathLocation);
+  pathLocation = pathLocation.replace('app.asar', 'app.asar.unpacked');
   const folders = [
     path.join(pathLocation, "build", "Release"),
     path.join(pathLocation, "build", "Debug"),
