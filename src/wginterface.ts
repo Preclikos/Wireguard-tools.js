@@ -5,7 +5,7 @@ import readline from "readline";
 import { finished } from "stream/promises";
 const dirname = __dirname.replace('app.asar', 'app.asar.unpacked');
 if (process.platform === "win32") global.WIREGUARD_DLL_PATH = path.join(dirname, "../addons/tools/win/wireguard-nt/bin", process.arch === "x64" ? "amd64" : process.arch, "wireguard.dll");
-const addon = require("../libs/prebuildifyLoad.cjs")("wginterface");
+const addon = require("../libs/prebuildifyLoad.cjs")("wginterface", dirname);
 
 export const { constants } = addon as { constants: { WG_B64_LENGTH: number, WG_LENGTH: number, MAX_NAME_LENGTH: number, driveVersion: string } };
 

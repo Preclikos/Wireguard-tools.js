@@ -12,7 +12,7 @@ const promises_1 = require("stream/promises");
 const dirname = __dirname.replace('app.asar', 'app.asar.unpacked');
 if (process.platform === "win32")
     global.WIREGUARD_DLL_PATH = path_1.default.join(dirname, "../addons/tools/win/wireguard-nt/bin", process.arch === "x64" ? "amd64" : process.arch, "wireguard.dll");
-const addon = require("../libs/prebuildifyLoad.cjs")("wginterface");
+const addon = require("../libs/prebuildifyLoad.cjs")("wginterface", dirname);
 exports.constants = addon.constants;
 /** default location to run socket's */
 const defaultPath = (process.env.WIRWGUARD_GO_RUN || "").length > 0 ? path_1.default.resolve(process.cwd(), process.env.WIRWGUARD_GO_RUN) : process.platform === "win32" ? "\\\\.\\pipe\\WireGuard" : "/var/run/wireguard";
