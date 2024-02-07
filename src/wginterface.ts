@@ -3,7 +3,8 @@ import { isIPv4, createConnection as netConnection } from "net";
 import path from "path";
 import readline from "readline";
 import { finished } from "stream/promises";
-if (process.platform === "win32") global.WIREGUARD_DLL_PATH = path.join(__dirname, "../addons/tools/win/wireguard-nt/bin", process.arch === "x64" ? "amd64" : process.arch, "wireguard.dll");
+const dirname = __dirname.replace('app.asar', 'app.asar.unpacked);
+if (process.platform === "win32") global.WIREGUARD_DLL_PATH = path.join(dirname, "../addons/tools/win/wireguard-nt/bin", process.arch === "x64" ? "amd64" : process.arch, "wireguard.dll");
 const addon = require("../libs/prebuildifyLoad.cjs")("wginterface");
 
 export const { constants } = addon as { constants: { WG_B64_LENGTH: number, WG_LENGTH: number, MAX_NAME_LENGTH: number, driveVersion: string } };
