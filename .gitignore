@@ -3,7 +3,7 @@
 node_modules/
 *-lock*
 /*.tgz
-*.node
+#*.node
 
 # Anothers
 .vscode-ctags*
@@ -13,5 +13,5 @@ node_modules/
 
 # Typescript
 *.tsbuildinfo
-src/**/*.d.ts
-src/**/*.js
+#src/**/*.d.ts
+#src/**/*.js
